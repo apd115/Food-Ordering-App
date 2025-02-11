@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import {Header} from "./src/components/Header";
 import {Body} from "./src/components/Body";
 
+import  About from "./src/components/About";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 
 
 
@@ -96,10 +99,23 @@ const AppLayout = () => {
              <Header/>
              <Body/>
            </div>
-           
+
+                    
         );
 };
 
+const appRouter = createBrowserRouter([
+    {
+      path : "/",
+      element: <AppLayout/>,
+    },
+    {
+      path:"/about",
+      element:<About/>
+    },
+    
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));//we create a root inside of the react and here
         //we render everything whichreact does and requires you to put in.
-root.render(<AppLayout/>);//rendered the heading inside of root.
+root.render(<RouterProvider router={appRouter}/>);//rendered the heading inside of root.

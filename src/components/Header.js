@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export const Header =() =>{
     
-  const [login, setLogin] = useState("Login");
+  const [log, setLog] = useState("Login");
     return (
     <div className="Header">
     <div className="logo">
@@ -16,9 +16,9 @@ export const Header =() =>{
           <li>Contact us</li>
           <li>Cart</li>
           <button className = "login-btn" onClick = { ()=>{
-              setLogin("Logout");
+               log === "Login" ? setLog("Logout"): setLog("Login");
            }} >
-            Login
+            {log}
           </button>
         </ul>
     </div>
