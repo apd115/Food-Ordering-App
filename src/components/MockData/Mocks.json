@@ -1,0 +1,83 @@
+{
+    "info": {
+        "id": "50463",
+        "name": "Burger King",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/24/1d2e78bf-7fe0-45f2-afb2-79859c6750a6_50463.jpg",
+        "locality": "Element One Mall",
+        "areaName": "Sector 47",
+        "costForTwo": "₹350 for two",
+        "cuisines": [
+            "Burgers",
+            "American"
+        ],
+        "avgRating": 4.4,
+        "parentId": "166",
+        "avgRatingString": "4.4",
+        "totalRatingsString": "43K+",
+        "sla": {
+            "deliveryTime": 30,
+            "lastMileTravel": 1.9,
+            "serviceability": "SERVICEABLE",
+            "slaString": "25-30 mins",
+            "lastMileTravelString": "1.9 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-04-18 05:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "Rxawards/_CATEGORY-Burger.png",
+                    "description": "Delivery!"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Rxawards/_CATEGORY-Burger.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "60% OFF",
+            "subHeader": "UPTO ₹120"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-66d476b0-424c-459a-89f4-294ae85248e1"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/gurgaon/burger-king-element-one-mall-sector-47-rest50463",
+        "type": "WEBLINK"
+    }
+}

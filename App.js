@@ -1,10 +1,22 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import {Header} from "./src/components/Header";
 import {Body} from "./src/components/Body";
-
+import {Error} from "./src/components/Error";
 import  About from "./src/components/About";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {Contact} from "./src/components/Contact";
+import { RestaurantMenu } from "./src/components/RestaurantMenu";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Grocery } from "./src/components/Grocery";
+import { useState, useEffect } from "react";
+import { UserContext } from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import { AppStore } from "./src/utils/AppStore";
+import Cart from "./src/components/Cart";
+
+//making the redux store -> redux toolkit (using configureStore)
+//bridging the store to our app -> react-redux (using Provider)
+
 
 
 
@@ -28,7 +40,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //The below written code is react code for the same nested div picture HTML code written above.
 //For having siblings inside of a react element we go for array as third argument in React.createElement.
 
-
+ 
 // const title = (<h1 id="title">Yo. How are y'all</h1>); //react element using JSX
 
 // const Component1 = () =>(
@@ -94,25 +106,64 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
 const AppLayout = () => {
+  const [userName, setUserName] =  useState();
+
+  useEffect(()=>{
+    const data = {
+       Name:"Aparna Dwivedi",
+    }
+    setUserName(data.Name);
+  }, [])
         return (
+          <Provider store={AppStore}>
+          <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
            <div className="layout">
              <Header/>
-             <Body/>
+             <Outlet/>
            </div>
-
+           </UserContext.Provider>
+           </Provider>
                     
         );
 };
+
+const Grocery = lazy(()=>import("./src/components/Grocery"))
 
 const appRouter = createBrowserRouter([
     {
       path : "/",
       element: <AppLayout/>,
+      children:[
+        {
+          path:"/about",
+          element:<About/>,
+          
+        },
+        {
+          path:"/contact",
+          element:<Contact/>,
+        },
+        {
+          path:"/",
+          element:<Body/>,
+        },
+        {
+          path:"/restaurants/:resId",
+          element:<RestaurantMenu/>,
+        },
+        {
+          path:"/grocery",
+          element:<Suspense fallBack={<h1>Loading....</h1>}><Grocery/></Suspense>,
+        },
+        {
+          path:"/Cart",
+          element:<Cart/>,
+        },
+        
+      ],
+      errorElement:<Error/>,
     },
-    {
-      path:"/about",
-      element:<About/>
-    },
+  
     
 ]);
 
