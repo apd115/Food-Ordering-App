@@ -7,7 +7,7 @@ import  About from "./src/components/About";
 import {Contact} from "./src/components/Contact";
 import { RestaurantMenu } from "./src/components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { Grocery } from "./src/components/Grocery";
+// import { Grocery } from "./src/components/Grocery";
 import { useState, useEffect } from "react";
 import { UserContext } from "./src/utils/UserContext";
 import { Provider } from "react-redux";
@@ -127,7 +127,7 @@ const AppLayout = () => {
         );
 };
 
-const Grocery = lazy(()=>import("./src/components/Grocery"))
+const Grocery = lazy(()=>import("./src/components/Grocery"));
 
 const appRouter = createBrowserRouter([
     {
@@ -153,7 +153,7 @@ const appRouter = createBrowserRouter([
         },
         {
           path:"/grocery",
-          element:<Suspense fallBack={<h1>Loading....</h1>}><Grocery/></Suspense>,
+          element:<Suspense fallback={<h1>Loading....</h1>}><Grocery/></Suspense>,
         },
         {
           path:"/Cart",
