@@ -1,10 +1,14 @@
 import { imageURLPrefix } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/CartSlice";
+import { useState } from "react";
 
 export const ItemList = ({items}) =>{
     
     const dispatch = useDispatch();
+
+    const [clicked, setClicked] = useState(false);
+    const [num, setNum] = useState(0);
 
     const handleAddItem = (item)=>{
         dispatch(addItem(item));
@@ -26,7 +30,11 @@ export const ItemList = ({items}) =>{
             
             <img src={imageURLPrefix + item.card.info.imageId} className="w-32 rounded-md "></img>
             
-            <button className="absolute   -bottom-4  bg-black text-white p-1 rounded-lg mx-10" onClick={()=>{handleAddItem(item)}}> Add +</button>
+            <button className="absolute   -bottom-4  bg-black text-white p-1 rounded-lg mx-10" onClick={()=>
+                {handleAddItem(item)
+                 setClicked(true)
+                 setNum(num+1)
+                }}>{clicked?(num): ("Add +")}</button>
             </div>
             
             </div>

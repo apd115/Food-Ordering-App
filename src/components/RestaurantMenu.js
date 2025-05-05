@@ -51,16 +51,7 @@ export const RestaurantMenu = () =>{
           />)
           )}
         </div>
-        {/* <div className="menu">
-        <ul className="flex flex-wrap">
-           {itemCards.map((items)=>
-           <li className="m-2 p-2" key={items.card.info.id}>
-            <img className="w-[200px] rounded-lg" src={`${imageURLPrefix}${items.card.info.imageId}`}> 
-            </img>
-            {items.card.info.name}
-           </li>)}
-        </ul> 
-        </div> */}
+        
        
         
       </div>

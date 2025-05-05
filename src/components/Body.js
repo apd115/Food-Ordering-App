@@ -60,13 +60,13 @@ export const Body = () =>{
               }} 
               />
               
-              <button className="px-4 py-2 m-2 bg-pink-900 text-white rounded" onClick={()=>{
+              <button className="px-4 py-2 m-2 bg-pink-900 text-white rounded active:bg-inherit focus:ring-1 focus:ring-pink-300" onClick={()=>{
                     const filteredList2 = resList.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                     setFilteredList2(filteredList2);
                    }}>
                 Search
                </button>
-               <button className ="px-4 py-2 m-2 bg-pink-900  text-white rounded " onClick = {()=>{
+               <button className ="px-4 py-2 m-2 bg-pink-900  text-white rounded active:bg-inherit focus:ring-1 focus:ring-pink-300 " onClick = {()=>{
                   const filteredList = resList.filter((res)=>res.info.avgRating>4);
                   setFilteredList2 (filteredList);
              }}>Top Rated Restaurants</button>
