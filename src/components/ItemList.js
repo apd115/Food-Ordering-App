@@ -28,7 +28,7 @@ export const ItemList = ({items}) =>{
             </div>
             <div className="w-3/12 relative">
             
-            <img src={imageURLPrefix + item.card.info.imageId} className="w-32 rounded-md "></img>
+            {item.card.info.imageId && <img src={imageURLPrefix + item.card.info.imageId} className="w-32 rounded-md "></img>}
             
             <button className="absolute   -bottom-4  bg-black text-white p-1 rounded-lg mx-10" onClick={()=>
                 {handleAddItem(item)

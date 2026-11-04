@@ -5,3 +5,7 @@
  export const menu_api_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=27.87960&lng=78.07620&restaurantId=";
 
  export const imageURLPrefix = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/"
+
+// Swiggy blocks browser requests (CORS), so we use local sample data for now.
+// Set to false once our own backend exists.
+export const USE_MOCK_DATA = true;

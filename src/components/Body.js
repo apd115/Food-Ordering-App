@@ -6,6 +6,8 @@ import { Shimmer_UI } from "./Shimmer_UI";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../utils/useOnlineStatus";
 import { UserContext } from "../utils/UserContext";
+import { USE_MOCK_DATA } from "../utils/constants";
+import mockResList from "./MockData/MocksResList.json";
 
 
 
@@ -24,12 +26,20 @@ export const Body = () =>{
          
 
          const fetchData = async () =>{
-          const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4121197&lng=77.048024&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-
-          const json = await data.json();
-          console.log(json);
-          setResList(json?.data?.cards[1]?.card?.card.gridElements.infoWithStyle.restaurants);
-          setFilteredList2(json?.data?.cards[1]?.card?.card.gridElements.infoWithStyle.restaurants);
+          if (USE_MOCK_DATA) {
+            setResList(mockResList);
+            setFilteredList2(mockResList);
+            return;
+          }
+          try {
+            const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4121197&lng=77.048024&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+            const json = await data.json();
+            const restaurants = json?.data?.cards[1]?.card?.card.gridElements.infoWithStyle.restaurants;
+            setResList(restaurants);
+            setFilteredList2(restaurants);
+          } catch (err) {
+            console.error("Failed to load restaurants:", err);
+          }
       }
 
       fetchData();
